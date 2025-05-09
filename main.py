@@ -1,9 +1,11 @@
 from flask import Flask, render_template, redirect, request
 import mysql.connector
 from mysql.connector import errorcode
+from flask_cors import CORS
 
 app = Flask(__name__)
 
+CORS(app)
 mysql_config = {
     'host' : '127.0.0.1',
     'port': '3306',
@@ -23,7 +25,7 @@ for table in table_names:
 """
 
 @app.route('/', methods=['GET', 'POST'])
-def login():
+def loxn():
     if request.method == 'POST':
         username = request.form['email']
         password = request.form['pass']
